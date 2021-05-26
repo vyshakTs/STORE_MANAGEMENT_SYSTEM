@@ -68,10 +68,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # all auth
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    # 'django.contrib.sites',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
     
     # Local
     'apps.accounts.apps.AccountsConfig',
