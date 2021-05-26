@@ -1,0 +1,14 @@
+secrets
+.env
+__pycache__
+media
+*~
+db.sqlite3
+newrelic.ini
+*.pyc
+*.coverage
+*/htmlcov/
+#*
+.pytest_cache
+.idea
+htmlcov

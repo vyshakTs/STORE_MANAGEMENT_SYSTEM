@@ -1,0 +1,242 @@
+﻿@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url(../fonts/OpenSans-Regular-webfont.woff) format('woff');
+}
+
+
+body {
+    color: #495585;
+    background: #f1f2f7;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-size: 13px;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+::selection {
+    background: #8ccf38;
+    color: #fff;
+}
+
+body {
+    background: #202436;
+}
+
+.header {
+    min-height: 50px;
+    height: 50px;
+    border-bottom: 1px solid #202436;
+    box-shadow: 0px 0px 5px 0px #171a27;
+    color: #444;
+}
+
+    .header .header_logohld {
+        height: 50px;
+        margin: 0 0 0 2%;
+        max-width: 100%;
+    }
+
+.logo {
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: block;
+    background-image: url('../img/go4shoppy-logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.welcome_holdr {
+    width: 100%;
+    display: block;
+    float: left;
+    padding: 0 0 0 30%;
+}
+
+.welcome {
+    text-align: right;
+    color: #444;
+    float: left;
+    width: auto;
+    text-shadow: 0 2px 1px #a1a1a1;
+}
+
+.go4shoppy {
+    width: 200px;
+    height: 60px;
+    background-image: url('../img/go4shoppy-logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    display: block;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 2px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-color: #eff2f7;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.create_str_h4 {
+    color: #39b5aa;
+    font-size: 22px;
+    text-transform: capitalize;
+}
+.indexRow {
+    height: 100%;
+}
+
+.indexPanel {
+    background: #1a1e2c;
+    width: 60%;
+    height: 65%;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    border: solid #141722;
+    overflow: hidden;
+}
+
+/* .panel-body {
+    overflow: hidden;
+} */
+
+.indexCol {
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 40%; left: 0; bottom: 0; right: 0;
+}
+
+.tab-container {
+    width: 100%;
+    display: block;
+    float: left;
+    height: auto;
+    margin: 2% 0 0 0;
+}
+
+.form-group {
+    float: left;
+    width: 100%;
+}
+
+.tab-container .current-tab {
+    display: block;
+}
+
+.tab-container .step3title {
+    color: #5b5b5b;
+    font-size: 22px;
+    width: auto;
+    margin: 0;
+}
+
+.tab-container .step3_sub {
+    font-size: 22px;
+    text-align: left;
+    margin: 6px 0 0 10px;
+}
+
+.tab-container .step3item1 {
+    width: 100%;
+    text-align: center;
+    margin: 12px 0 0 0;
+    font-size: 15px;
+}
+
+.tab-container .step3item2 {
+    text-align: center;
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+footer {
+    width:100%;
+    height:100px
+}
+.product_table {
+    float:left;
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+/*color*/
+.white-bg {
+    background: #333955;
+}
+
+.dark-violet {
+    background: #2a3542;
+}
+
+@media (max-width: 992px) {
+    .welcome_holdr {
+        padding:0;
+    }
+    .stepby-tab ul {
+        margin: 10px 0 0 1%;
+    }
+}
+
+.indexSignup {
+    color: white; 
+    padding: 1px 1px 1px 1px;
+    text-decoration: none;
+}
+
+.registrationButton, .loginButton{
+    margin-top: 25px;
+}
+
+/* for large display check Resolution
+
+@media (min-width:1367px)and (max-width:1430px) {
+    body{
+        zoom:1.08;
+    }
+}
+@media (min-width:1431px)and (max-width:1530px) {
+    body{
+        zoom:1.12;
+    }
+}
+@media (min-width:1530px)and (max-width:1830px) {
+    body{
+        zoom:1.3;
+    }
+}
+@media (min-width:1831px){
+    body{
+        zoom:1.4;
+    }
+}
+@media (min-width:2031px){
+    body{
+        zoom:1.45;
+    }
+}
+@media (min-width:2330px){
+    body{
+        zoom:1.85;
+    }
+}
+
+*/

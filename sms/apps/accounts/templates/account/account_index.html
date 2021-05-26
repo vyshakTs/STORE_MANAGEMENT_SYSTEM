@@ -1,0 +1,35 @@
+{% include 'layout.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block header %}
+{% include "header.html" %}
+{% endblock %}
+
+{% block layout %}
+<div class="container">
+  <div class="row indexRow">
+    <div class="panel indexPanel">
+      <header class="panel-heading text-center">
+        <h4 class="create_str_h4">create user account.</h4>
+      </header>
+      <div class="panel-body">
+        <div class="form-group">
+          <div class="col-lg-10 indexCol">
+            <a href="" class="indexSignup">
+            <button name="registration_submit" type="button" value="" class="btn btn-block btn-info">{% translate 'Create store account' %}</button></a>
+
+            <a href="{% url 'user_signup' %}" class="indexSignup">
+              <button name="registration_submit" type="button" value="" class="btn btn-block btn-info">{% translate 'Create user account' %}</button></a>
+            <div class="form-group text-center">
+              <small class="text-white">Already have an account?</small>
+              <a href="{% url 'user_login' %}" class="showLoginForm"> Login</a>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

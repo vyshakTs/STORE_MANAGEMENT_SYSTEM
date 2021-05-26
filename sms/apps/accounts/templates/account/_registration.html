@@ -1,0 +1,155 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block layout %}
+    <header class="navbar header navbar-static-top bs-docs-nav white-bg">
+        <div class="header_logohld col-lg-2 col-md-2 .col-sm-2">
+            <a class="logo" href="#"></a>
+        </div>
+    </header>
+    <div class="constainer">
+        <div class="container-fluid">
+            <div class="col-lg-12">
+                <div class="welcome_holdr">
+                    <h1 class="welcome">Welcome to</h1>
+                    <span class="go4shoppy"></span>
+                    <h1 class="welcome">.com</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="panel">
+                <header class="panel-heading text-center">
+                    <h4 class="create_str_h4">create your online store now.</h4>
+                </header>
+                <div class="panel-body">
+                    <div class="stepby-tab">
+                        <ul class="center-block">
+                            <li class="current-step tab1">
+                                <div>Step1</div>
+                            </li>
+                            <li class="tab2">
+                                <div>Step2</div>
+                            </li>
+                            <li class="tab3">
+                                <div>Step3</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <form class="tab-container" id="register">
+                        <fieldset title="Step1" id="step1" class="current-tab tab1">
+                            <legend></legend>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Store Name</label>
+                                <div class="col-lg-6">
+                                    <input type="text" name="store_name" class="form-control" placeholder="Your store Name" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">E - mail Address</label>
+                                <div class="col-lg-6">
+                                    <input type="email" name="email" class="form-control" placeholder="Your E-mail id" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Password</label>
+                                <div class="col-lg-6">
+                                    <input type="password" name="password" class="form-control" placeholder="password" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-10">
+                                    <input id="stage1_next"  type="button" class="button-back btn btn-info float-right" value="Next" />
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset title="Step2" id="step2" class="tab2">
+                            <legend></legend>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Full Name</label>
+                                <div class="col-lg-6">
+                                    <input type="text" name="fullname" class="form-control" placeholder="Your Full Name" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Address</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" placeholder="address 1" />
+                                    <br />
+                                    <input type="text" class="form-control" placeholder="address 2" />
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">City</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" placeholder="City" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Zip/Postel Code</label>
+                                <div class="col-lg-6">
+                                    <input type="text" name="zipcode" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Country</label>
+                                <div class="col-lg-6">
+                                    <select class="form-control">
+                                        <option>Inda</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">State</label>
+                                <div class="col-lg-6">
+                                    <select class="form-control">
+                                        <option>Kerala</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Phone Number</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-10">
+                                    <input id="goback" type="button" class="button-back btn btn-info" value="Previous" />
+                                    <input id="Submit2" type="button" class="button-back btn btn-info float-right" value="Create my store" />
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset title="Step3" id="step3" class="tab3">
+                            <legend></legend>
+                            <div class="form-group">
+                                <div class="col-lg-12 step3">
+                                    <h4 class="step3title"><i class="fa fa-check"></i>Welcome to go4shoppy,
+                                    <label class="step3_sub">Jomon</label></h4>
+                                </div>
+                                <div class="col-lg-12 step3item1">
+                                    <p>
+                                        You'll be able to sign in to go4shoppy with
+                                        <label>jomongeorge23@gmail.com</label>
+                                    </p>
+                                </div>
+                                <div class="col-lg-12 step3item2">
+                                    <p>By clicking the button you agree to <a href="#">go4shoppy's terms of services </a></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="center-block">
+                                    <input id="gotostore" type="button" class="finish btn btn-danger center-block " value="Continue to my store" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% load widget_tweaks %}
+{% for hidden_field in form.hidden_fields %}
+{{hidden_field}}
+{% endfor %}
+
+{% for field in form.visible_fields %}
+<div class="form-group">
+    <label class="col-lg-4 control-label">{{field.label}}</label>
+    <div class="col-lg-6">
+        {{field|add_class:'form-control'}}
+    </div>
+    {% include "includes/form_field_errors.html" with field=field %}
+</div>
+{% endfor %}

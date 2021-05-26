@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}go4shoppy{% endblock %}
+{% block styles %}
+    <link href="{% static 'accounts/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'accounts/css/font-awesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'accounts/css/custom.css' %}" rel="stylesheet" />
+    <link href="{% static 'accounts/css/validate.css' %}" rel="stylesheet" />
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{% static 'accounts/js/jquery.min.js' %}"></script>
+<script src="{% static 'accounts/js/validate.js' %}"></script>
+<script src="{% static 'accounts/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'accounts/js/jquery.nicescroll.min.js' %}"></script>
+<script src="{% static 'accounts/js/validate.js' %}"></script>
+<script src="{% static 'accounts/js/register.js' %}"></script>
+{% endblock %}
