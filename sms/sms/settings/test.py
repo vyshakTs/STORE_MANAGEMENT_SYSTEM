@@ -9,7 +9,7 @@ DATABASES = {
         'NAME': 'github-actions',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'postgres',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
