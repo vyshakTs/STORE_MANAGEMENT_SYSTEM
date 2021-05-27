@@ -1,18 +1,18 @@
 import uuid
 
 from django.db import models
-
+from django.db.models import Q
 
 # Create your models here.
-class TimeStampedModel(models.Model):
-    created_date = models.DateTimeField(auto_now_add=True)
-    modified_date = models.DateTimeField(auto_now=True)
+# class TimeStampedModel(models.Model):
+#     created_date = models.DateTimeField(auto_now_add=True)
+#     modified_date = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        abstract = True
+#     class Meta:
+#         abstract = True
         
 
-class WebStore(TimeStampedModel):
+class WebStore(models.Model):
     # language = models.ForeignKey(Language, null=True, on_delete=models.SET_NULL)
     user = models.OneToOneField(
         'accounts.User', on_delete=models.CASCADE, primary_key=True)
@@ -30,3 +30,10 @@ class WebStore(TimeStampedModel):
 
     def __str__(self):
         return self.name
+    
+    @property
+    def is_complete(self):
+        if self.objects.filter(Q(user__isnull=True) | Q(name__isnull=True) | Q(address1__isnull=True) | Q(phone_no__isnull=True)):
+            return False
+        else:
+            return True

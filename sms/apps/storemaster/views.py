@@ -1,7 +1,8 @@
 from django.conf import settings
 from django.contrib.auth import login
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -14,7 +15,7 @@ class StoreProfileCreationView(LoginRequiredMixin, generic.FormView):
     form_class = StoreCreationForm
     model = WebStore
     template_name = 'storemaster/store_profile.html'
-    success_url = 'dashboard'
+    success_url = reverse_lazy('store_dashboard')
     
     def get_queryset(self):
         qs = super().get_queryset()
@@ -27,13 +28,17 @@ class StoreProfileCreationView(LoginRequiredMixin, generic.FormView):
         }
         return kwargs
     
-    
     def form_valid(self, form):
         profile = form.save()
-        if profile is not None:
-            login(self.request, profile, backend=settings.AUTHENTICATION_BACKENDS[0])
         return super(StoreProfileCreationView, self).form_valid(form)
     
 
 class StoreProfileView(generic.TemplateView):
     template_name = 'storemaster/index.html'
+    
+    def get(self, request, *args, **kwargs):
+        try :
+            self.request.user.webstore
+        except ObjectDoesNotExist:
+            return redirect('store_profile')          
+        return super().get(request, *args, **kwargs)

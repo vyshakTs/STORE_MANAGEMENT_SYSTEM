@@ -21,19 +21,17 @@ class StoreCreationForm(forms.ModelForm):
     class Meta:
         model = WebStore
         exclude = ('user', 'store_id')
-        # fields = (
-        #     'name', 'address1', 'address2', 'country', 'state', 'city',
-        #     'phone_no', 'post_code'
-        # )
         
     def __init__(self, *args, **kwargs):
+        self.user = kwargs['initial'].get('user')
         super().__init__(*args, **kwargs)
         
     def _post_clean(self):
         super()._post_clean()
         
-    def save(self, commit=True,):
+    def save(self, commit=True, *args,**kwargs):
         profile = super().save(commit=False)
+        profile.user = self.user
         if commit:
             profile.save()
         return profile

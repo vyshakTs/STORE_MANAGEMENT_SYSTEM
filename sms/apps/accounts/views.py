@@ -40,9 +40,9 @@ class UserLoginView(LoginView):
     template_name = 'account/user_login.html'
     redirect_authenticated_user = True
     redirect_field_name = 'next'
-    success_url = 'home'
+    success_url = 'store_dashboard'
     
     def get_success_url(self):
         if self.request.user.is_authenticated:
-            return reverse_lazy('home')
+            return reverse_lazy('store_dashboard')
         return super().get_success_url()
