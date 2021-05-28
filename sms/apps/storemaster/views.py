@@ -34,7 +34,7 @@ class StoreProfileCreationView(LoginRequiredMixin, generic.FormView):
     
 
 class StoreProfileView(generic.TemplateView):
-    template_name = 'storemaster/index.html'
+    template_name = 'storemaster/store_dashboard.html'
     
     def get(self, request, *args, **kwargs):
         try :
@@ -42,3 +42,6 @@ class StoreProfileView(generic.TemplateView):
         except ObjectDoesNotExist:
             return redirect('store_profile')          
         return super().get(request, *args, **kwargs)
+    
+    # def get_context_data(self, **kwargs):
+    #     pass
