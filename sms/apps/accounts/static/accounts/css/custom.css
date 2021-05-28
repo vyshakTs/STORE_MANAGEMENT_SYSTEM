@@ -7,7 +7,7 @@
 
 
 body {
-    color: #495585;
+    color: white;
     background: #f1f2f7;
     font-family: 'Open Sans', sans-serif;
     padding: 0px !important;
@@ -27,14 +27,14 @@ body {
 }
 
 body {
-    background: #202436;
+    background: white;
 }
 
 .header {
     min-height: 50px;
     height: 50px;
-    border-bottom: 1px solid #202436;
-    box-shadow: 0px 0px 5px 0px #171a27;
+    border-bottom: 1px solid #305feb;
+    box-shadow: 0px 0px 5px 0px #1246e2;
     color: #444;
 }
 
@@ -99,13 +99,13 @@ body {
 }
 
 .indexPanel {
-    background: #1a1e2c;
+    background: #4e73df;
     width: 60%;
     height: 65%;
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    border: solid #141722;
+    border: solid #4e73df;
     overflow: hidden;
 }
 
@@ -140,7 +140,7 @@ body {
 }
 
 .tab-container .step3title {
-    color: #5b5b5b;
+    color: white;
     font-size: 22px;
     width: auto;
     margin: 0;
@@ -180,11 +180,11 @@ footer {
 
 /*color*/
 .white-bg {
-    background: #333955;
+    background: #4e73df;
 }
 
 .dark-violet {
-    background: #2a3542;
+    background: #4e73df;
 }
 
 @media (max-width: 992px) {
