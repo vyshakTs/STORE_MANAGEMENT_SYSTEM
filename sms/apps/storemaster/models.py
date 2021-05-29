@@ -17,7 +17,7 @@ class WebStore(models.Model):
     user = models.OneToOneField(
         'accounts.User', on_delete=models.CASCADE, primary_key=True)
     store_id = models.UUIDField(default=uuid.uuid4)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     # url = models.URLField(max_length=200, unique=True)
     address1 = models.CharField(max_length=100)
     address2 = models.CharField(max_length=100)

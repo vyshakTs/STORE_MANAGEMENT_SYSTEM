@@ -1,15 +1,13 @@
 # Create your views here.
 from django.conf import settings
-from django.contrib.auth import login
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.views import LoginView
+from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 
 from apps.customers.models import CustomerProfile
 
-from .forms import UserCreationForm
+from .forms import CustomAuthentication, UserCreationForm
 
 
 class CustomerProfileView(generic.TemplateView):
@@ -24,7 +22,7 @@ class StoreRegistrationView(generic.FormView):
 
     def get(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect(settings.LOGIN_REDIRECT_URL)
+            return redirect('store_dashboard')
         return super().get(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -35,14 +33,22 @@ class StoreRegistrationView(generic.FormView):
         return super(StoreRegistrationView, self).form_valid(form)
 
 
-class UserLoginView(LoginView):
-    form_class = AuthenticationForm
-    template_name = 'account/user_login.html'
+class UserLoginView(generic.FormView):
+    form_class = CustomAuthentication
+    template_name = 'account/store_login.html'
     redirect_authenticated_user = True
     redirect_field_name = 'next'
-    success_url = 'store_dashboard'
     
-    def get_success_url(self):
+    def get(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
             return reverse_lazy('store_dashboard')
-        return super().get_success_url()
+        return super().get(request, *args, **kwargs)
+    
+    def form_valid(self, form):
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user = authenticate(username=username, password=password)
+        if user.is_active:
+            login(self.request, user, backend=settings.AUTHENTICATION_BACKENDS[0])
+            return redirect('store_dashboard')
+        

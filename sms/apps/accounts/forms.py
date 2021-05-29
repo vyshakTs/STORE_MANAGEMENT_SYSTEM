@@ -2,12 +2,58 @@
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
 from apps.storemaster.models import WebStore
 
 from .models import User
+
+
+class CustomAuthentication(AuthenticationForm):
+    username = forms.CharField(
+        label=_('Username'), widget=forms.TextInput,
+    )
+    password = forms.CharField(
+        label=_('Password'), widget=forms.PasswordInput,
+    )
+    
+    class Meta:
+        model = User
+        fields = ('username', 'password')
+        
+    def __init__(self, *args, **kwargs):
+        self.valid_user = None
+        super().__init__(*args, **kwargs)
+        
+    def _post_clean(self):
+        super()._post_clean()
+        
+        password = self.cleaned_data.get('password', '')
+        
+    def clean_username(self):
+        username = self.cleaned_data.get('username', '')
+        try:
+            self.valid_user = User.objects.get(Q(username=username)|Q(email=username))
+        except ObjectDoesNotExist:
+            raise forms.ValidationError(
+                _('Account with the given username does not exists.')
+            )
+        return username
+    
+    def clean_password(self):
+        username = self.cleaned_data.get('username', '')
+        password = self.cleaned_data.get('password', '')
+        if self.valid_user:
+            if not self.valid_user.check_password(password) :
+                raise forms.ValidationError(
+                    _('Password entered is incorrect.')
+                )
+        return password
+    
 
 
 class UserCreationForm(forms.ModelForm):

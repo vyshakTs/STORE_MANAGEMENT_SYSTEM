@@ -20,7 +20,7 @@ class StoreCreationForm(forms.ModelForm):
     
     class Meta:
         model = WebStore
-        exclude = ('user', 'store_id')
+        exclude = ('user', 'store_id', 'country', 'city', 'state', 'post_code')
         
     def __init__(self, *args, **kwargs):
         self.user = kwargs['initial'].get('user')

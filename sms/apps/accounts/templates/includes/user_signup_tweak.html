@@ -5,10 +5,7 @@
 
 {% for field in form.visible_fields %}
 <div class="form-group">
-    <label class="col-lg-4 control-label">{{field.label}}</label>
-    <div class="col-lg-6">
-        {{field|add_class:'form-control'}}
-    </div>
+    {% render_field field class="form-control form-control-user" placeholder=field.label %}
     {% include "includes/form_field_errors.html" with field=field %}
 </div>
 {% endfor %}

@@ -1,8 +1,6 @@
-from django.conf import settings
-from django.contrib.auth import login
-from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -33,7 +31,7 @@ class StoreProfileCreationView(LoginRequiredMixin, generic.FormView):
         return super(StoreProfileCreationView, self).form_valid(form)
     
 
-class StoreProfileView(generic.TemplateView):
+class StoreProfileView(LoginRequiredMixin, generic.TemplateView):
     template_name = 'storemaster/store_dashboard.html'
     
     def get(self, request, *args, **kwargs):
