@@ -48,7 +48,10 @@ class UserLoginView(generic.FormView):
         username = form.cleaned_data['username']
         password = form.cleaned_data['password']
         user = authenticate(username=username, password=password)
-        if user.is_active:
+        if user.is_active and user.is_SO:
             login(self.request, user, backend=settings.AUTHENTICATION_BACKENDS[0])
-            return redirect('store_dashboard')
+            reverse_url = 'store_dashboard'
+        else:
+            reverse_url = 'home'
+        return redirect(reverse_url)
         
