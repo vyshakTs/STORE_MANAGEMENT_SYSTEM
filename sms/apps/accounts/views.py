@@ -23,7 +23,7 @@ class StoreRegistrationView(generic.FormView):
 
     def get(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect(redirect_url)
+            return redirect(self.redirect_url)
         return super().get(request, *args, **kwargs)
     
     def get_context_data(self, **kwargs):
