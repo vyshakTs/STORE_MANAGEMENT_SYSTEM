@@ -82,19 +82,8 @@ class UserCreationForm(forms.ModelForm):
         )
 
     def __init__(self, *args, **kwargs):
+        self.user_type = kwargs['initial'].get('user_type', '')
         super().__init__(*args, **kwargs)
-
-    def _post_clean(self):
-        super()._post_clean()
-        password = self.cleaned_data.get('password2')
-        username = self.cleaned_data.get('username')
-        # Validate after self.instance is updated with form data
-        # otherwise validators can't access email
-        if password:
-            try:
-                validate_password(password, self.instance)
-            except forms.ValidationError as error:
-                self.add_error('password2', error)
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -124,7 +113,12 @@ class UserCreationForm(forms.ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data.get('password1'))
-        user.user_type = User.STORE_OWNER
+        if self.user_type == User.STORE_OWNER:
+            user.user_type = User.STORE_OWNER
+        elif self.user_type == User.EMPLOYEE:
+            user.user_type = User.EMPLOYEE
+        else:
+            user.user_type = User.CUSTOMER
         if commit:
             user.save()
         return user
