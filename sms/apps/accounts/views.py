@@ -5,9 +5,10 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from apps.customers.models import CustomerProfile
-from .models import User
+from sms.apps.customers.models import CustomerProfile
+
 from .forms import CustomAuthentication, UserCreationForm
+from .models import User
 
 
 class CustomerProfileView(generic.TemplateView):

@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
-from apps.storemaster.models import WebStore
+from sms.apps.storemaster.models import WebStore
 
 from .models import User
 

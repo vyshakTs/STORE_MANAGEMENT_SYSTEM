@@ -45,6 +45,9 @@ class StoreProfileView(LoginRequiredMixin, IsStoreOwnerMixin, generic.TemplateVi
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user'] = self.request.user
-        # context['shope_name'] = self.request.user.webstore.name
-        # context['shop_tagline'] = self.request.user.webstore.shop_tagline
+        # context['order_count'] = Orders.objects.filter(Q(webstore=self.request.user.webstore),
+        #                             ~Q(status=Orders.INVALID)).count()
+        # context['sales'] = Orders.objects.filter(Q(webstore=self.request.user.webstore), 
+        #                         Q(status=Orders.COMPLETED)).count()
+        # context['visitors'] = None
         return context

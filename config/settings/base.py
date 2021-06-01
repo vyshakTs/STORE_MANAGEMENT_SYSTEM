@@ -74,12 +74,12 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount',
     
     # Local
-    'apps.accounts.apps.AccountsConfig',
-    'apps.storemaster.apps.StoremasterConfig',
-    'apps.stores.apps.StoresConfig',
-    'apps.products.apps.ProductsConfig',
-    'apps.orders.apps.OrdersConfig',
-    'apps.customers.apps.CustomersConfig',
+    'sms.apps.accounts.apps.AccountsConfig',
+    'sms.apps.storemaster.apps.StoremasterConfig',
+    'sms.apps.stores.apps.StoresConfig',
+    'sms.apps.products.apps.ProductsConfig',
+    'sms.apps.orders.apps.OrdersConfig',
+    'sms.apps.customers.apps.CustomersConfig',
     
     # Template rendering
     'widget_tweaks',
@@ -101,14 +101,14 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = 'sms.urls'
+ROOT_URLCONF = 'config.urls'
 
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates/',
+            BASE_DIR / 'sms/templates/',
             BASE_DIR / 'sms/apps/accounts/templates/',
             BASE_DIR / 'sms/apps/accounts/templates/account',
             BASE_DIR / 'sms/apps/storemaster/templates/',
@@ -128,7 +128,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'sms.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -179,13 +179,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_DIR = BASE_DIR / 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static/']
+STATIC_ROOT = BASE_DIR / 'sms/staticfiles/'
+STATICFILES_DIRS = [BASE_DIR / 'sms/static/']
 
 
 # For uploading documents.
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media/'
+MEDIA_ROOT = BASE_DIR / 'sms/media/'
 
 
 # Default primary key field type

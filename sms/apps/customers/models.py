@@ -1,7 +1,7 @@
 from autoslug import AutoSlugField
 from django.db import models
 
-from apps.accounts.models import (City, Country, PostCode, State,
+from sms.apps.accounts.models import (City, Country, PostCode, State,
                                   TimeStampedModel, User)
 
 
@@ -21,4 +21,7 @@ class CustomerProfile(TimeStampedModel):
     state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True)
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
     post_code = models.ForeignKey(PostCode, on_delete=models.SET_NULL, null=True)
+    
+    def __str__(self):
+        return self.user
     

@@ -1,4 +1,4 @@
-secrets
+secrets.json
 .env
 __pycache__
 media
@@ -12,3 +12,4 @@ newrelic.ini
 .pytest_cache
 .idea
 htmlcov
+apps_list.txt

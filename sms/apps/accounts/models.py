@@ -5,7 +5,7 @@ from django.db import models
 from django.db.models import F
 from phonenumber_field.modelfields import PhoneNumberField
 
-from apps.storemaster.models import WebStore
+from sms.apps.storemaster.models import WebStore
 from helpers import current_datetime
 
 
@@ -70,7 +70,7 @@ class City(models.Model):
 
 class State(models.Model):
     state_id = models.UUIDField(default=uuid.uuid4)
-    country = models.ForeignKey('Country', on_delete=models.CASCADE,)
+    country = models.ForeignKey('Country', on_delete=models.CASCADE,) # many-to-one relationship
     name = models.CharField(max_length=50)
     state_code = models.CharField(max_length=10, unique=True)
 
