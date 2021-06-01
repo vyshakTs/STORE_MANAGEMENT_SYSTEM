@@ -48,7 +48,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run Migrations
       run: |
-        python manage.py migrate --settings=sms.settings.test
+        python manage.py migrate --settings=config.settings.test
     - name: Django Test
       run: |
         py.test -vv --cov=. 
