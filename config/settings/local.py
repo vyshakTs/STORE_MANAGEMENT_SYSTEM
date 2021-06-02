@@ -20,5 +20,7 @@ INSTALLED_APPS += [
     'django_extensions',
 ]
 
+ALLOWED_HOSTS += ['.herokuapp.com']
+
 # Loads SECRET_KEY from .env file
 # SECRET_KEY = get_env_variable('SECRET_KEY')
