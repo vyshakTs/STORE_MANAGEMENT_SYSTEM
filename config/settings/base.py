@@ -13,10 +13,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
-# from env_json import get_secret
-
 # package to load environment variables from .env file.
 from environs import Env
+
+# from env_json import get_secret
+
 
 env = Env()
 env.read_env()

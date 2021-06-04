@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+
 from sms.apps.accounts.models import TimeStampedModel
 
 

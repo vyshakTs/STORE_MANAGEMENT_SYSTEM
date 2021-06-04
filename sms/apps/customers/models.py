@@ -2,7 +2,7 @@ from autoslug import AutoSlugField
 from django.db import models
 
 from sms.apps.accounts.models import (City, Country, PostCode, State,
-                                  TimeStampedModel, User)
+                                      TimeStampedModel, User)
 
 
 # Create your models here.
