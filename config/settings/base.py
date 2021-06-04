@@ -42,7 +42,7 @@ Loading the SECRET_KEY from .env
 SECRET_KEY = get_env_variable('SECRET_KEY') '''
 #----------------------------------------------------------------------
 
-SECRET_KEY = ''
+SECRET_KEY = env.str('SECRET_KEY')
 
 DEBUG = False
 
