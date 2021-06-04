@@ -13,11 +13,17 @@ class UserAdmin(UserAdmin):
         'mobile',
         'user_type',
     ]
+    fieldsets = UserAdmin.fieldsets+(
+        (None, {'fields': ('user_type', 'mobile'),}),
+    )
+    # add_fieldsets = UserAdmin.add_fieldsets+(
+    #     (None, {'fields': ('user_type', 'mobile'),}),
+    # )
 
 
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
-    list_display = [
+    list_display = [    
         'name',
         'country_code',
     ]

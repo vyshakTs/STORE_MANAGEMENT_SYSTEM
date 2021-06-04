@@ -12,3 +12,4 @@ newrelic.ini
 .idea
 htmlcov
 apps_list.txt
+secrets.json

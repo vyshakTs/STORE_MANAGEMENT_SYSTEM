@@ -11,16 +11,15 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-# import apps
 from pathlib import Path
 
-from env_json import get_secret
+# from env_json import get_secret
 
-#from dotenv import load_dotenv
+# package to load environment variables from .env file.
+from environs import Env
 
-
-## Loads environment variables from .env file.
-#load_dot_env(verbose=True)
+env = Env()
+env.read_env()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,13 +42,9 @@ Loading the SECRET_KEY from .env
 SECRET_KEY = get_env_variable('SECRET_KEY') '''
 #----------------------------------------------------------------------
 
+SECRET_KEY = env('SECRET_KEY')
 
-# Loading SECRET_KEY from secrets.json file.
-SECRET_KEY = get_secret('SECRET_KEY')
-
-
-DEBUG = get_secret('DEBUG')
-
+DEBUG = env.bool('DEBUG')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -65,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     
     # all auth
@@ -91,6 +87,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -227,4 +224,4 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 # ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
