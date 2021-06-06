@@ -1,6 +1,6 @@
 from .base import *
 
-# DEBUG = True
+DEBUG = True
 
 
 DATABASES = {
@@ -18,5 +18,3 @@ DATABASES = {
 # SECRET_KEY = get_env_variable('SECRET_KEY')
 
 SECRET_KEY = str(os.environ.get('SECRET_KEY'))
-
-DEBUG = os.environ.get('DEBUG')

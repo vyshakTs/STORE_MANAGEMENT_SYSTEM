@@ -44,9 +44,17 @@ Loading the SECRET_KEY from .env
 SECRET_KEY = get_env_variable('SECRET_KEY') '''
 #----------------------------------------------------------------------
 
-SECRET_KEY = env.str('SECRET_KEY')
+def get_env_variable(var_name):
+    # Get the environment variable or return exception.
+    try:
+        return env.str(var_name)
+    except KeyError:
+        error_msg = f'Set the {var_name} environment variable.' 
+        raise ImproperlyConfigured(error_msg)
 
-DEBUG = env.bool('DEBUG')
+SECRET_KEY = get_env_variable('SECRET_KEY')
+
+DEBUG = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
