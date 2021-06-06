@@ -16,6 +16,7 @@ from pathlib import Path
 import dj_database_url
 # package to load environment variables from .env file.
 from environs import Env
+from  django.core.exceptions import ImproperlyConfigured
 
 # from env_json import get_secret
 
