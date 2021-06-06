@@ -13,8 +13,3 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-# Loads SECRET_KEY from .env file
-# SECRET_KEY = get_env_variable('SECRET_KEY')
-
-SECRET_KEY = str(os.environ.get('SECRET_KEY'))
