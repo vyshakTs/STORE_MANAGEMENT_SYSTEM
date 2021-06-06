@@ -46,7 +46,7 @@ SECRET_KEY = get_env_variable('SECRET_KEY') '''
 
 SECRET_KEY = env.str('SECRET_KEY')
 
-DEBUG = False
+DEBUG = env.bool('DEBUG')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/

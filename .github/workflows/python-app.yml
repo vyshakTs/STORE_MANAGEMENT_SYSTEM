@@ -18,6 +18,8 @@ jobs:
       postgres:
         image: postgres:13.2
         env:
+          SECRET_KEY: df75809abc4f657da03b513d77ee178100090091931c0ed908
+          DEBUG: False
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: github_actions
