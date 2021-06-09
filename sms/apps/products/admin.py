@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Product
+from .models import Category, Product, SubCategory
 
 
 # Register your models here.
@@ -17,4 +17,24 @@ class ProductAdmin(admin.ModelAdmin):
         'net_amount',
         'offer_percentage',
         'status',
+    ]
+
+
+@admin.register(Category)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = [
+        'title',
+    ]
+    search_fields = [
+        'title',
+    ]
+
+
+@admin.register(SubCategory)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = [
+        'title',
+    ]
+    search_fields = [
+        'title',
     ]

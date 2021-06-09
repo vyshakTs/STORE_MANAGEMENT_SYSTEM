@@ -9,7 +9,7 @@ from sms.apps.accounts.models import TimeStampedModel
 class Orders(TimeStampedModel):
     webstore = models.ForeignKey('storemaster.WebStore', on_delete=models.CASCADE, blank=True, null=True)
     order_id = models.UUIDField(default=uuid.uuid4)
-    products = models.ForeignKey('OrderProducts', related_name='ordered_products', on_delete=models.CASCADE) # I think it should be many to many relation
+    products = models.ManyToManyField('OrderProducts', related_name='ordered_products',)
     customer = models.ForeignKey('customers.CustomerProfile', on_delete=models.SET_NULL, blank=True, null=True)
     PENDING = 1
     OUT_FOR_DELIVERY = 2
